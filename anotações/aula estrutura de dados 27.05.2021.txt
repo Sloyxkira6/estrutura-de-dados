@@ -1,0 +1,68 @@
+aula estrutura de dados 27.05.2021
+estruturas genericas
+
+qualquer informação que quiser trabalhar
+
+void* t=NULL
+
+Ponto p;
+
+p.x = p.y =1
+
+para ela funcionar tem q iniciar fazendo um questin
+
+Ponto* p2=(Ponto*)t;
+
+printf("Ponto(%d, %d)", p2->x, p2->y);
+
+ponteiro para funções
+
+tipo(*funcao)(tipo,...)
+
+void(*funcao)(void) //passa void e retorna void
+tipo(*funcao)(void) //não passa parametro e retorna algum tipo
+void(*funcao)(tipo,...) //retorna void e passa parametro
+tipo(*funcao)(tipo,...) //passa parametro e retorna algo
+
+float pi(void) //nao passa nd e retorna algo
+{
+	return(float)3.14;
+}
+float raiz_de_2(void)
+{
+	return(float)1.42;
+}
+
+void imprime(float(*funcao)(void))
+{
+	printf("%f", funcao());
+}
+int main()
+{
+	imprime(pi);
+}
+
+//------------------------------------
+
+void soma(int a, int b)
+{
+	printf("%d + %d=%d\n", a,b,a+b);
+}
+void sub(int a, int b)
+{
+	printf("%d - %d=%d\n", a,b,a-b);
+}
+void imprime(void(*ptr)(int, int), void(*ptr1)(int, int))
+//se fosse ponteiro seria int*
+{
+	int a=10, b=13;
+
+	printf("%d", ptr(a,b) - ptr1(a,b));
+		
+}
+
+int main()
+{
+	imprime(soma, sub);
+
+}
